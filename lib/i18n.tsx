@@ -463,7 +463,7 @@ export const translations: Record<Language, Translation> = {
         features: "Fitur",
         glossary: "Glosarium",
         about: "Tentang",
-        login: "Login",
+        login: "Masuk",
         privacyPolicy: "Kebijakan Privasi",
         termsOfService: "Syarat Layanan",
         contactQuestion: "Punya pertanyaan? Hubungi kami di",
