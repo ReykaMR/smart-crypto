@@ -93,7 +93,7 @@ export default async function AdminDashboardPage() {
 
   return (
     <div className="space-y-6">
-      {/* Welcome Card - Responsive */}
+      {/* Welcome Card */}
       <div className="bg-linear-to-r from-blue-600 to-indigo-600 rounded-xl sm:rounded-2xl p-4 sm:p-6 md:p-8 text-white shadow-lg">
         <h1 className="text-xl sm:text-2xl md:text-3xl font-bold mb-2">
           Welcome back, Admin! 👋
@@ -103,7 +103,7 @@ export default async function AdminDashboardPage() {
         </p>
       </div>
 
-      {/* Statistics Grid - Fully Responsive */}
+      {/* Statistics Grid */}
       <div>
         <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
           Platform Statistics
@@ -115,7 +115,7 @@ export default async function AdminDashboardPage() {
         </div>
       </div>
 
-      {/* Recent Activity & Users - Responsive */}
+      {/* Recent Activity & Users */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
         {/* Recent Users */}
         <div>
@@ -134,7 +134,7 @@ export default async function AdminDashboardPage() {
         </div>
       </div>
 
-      {/* Quick Actions - Responsive */}
+      {/* Quick Actions */}
       <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-sm border border-gray-200">
         <h2 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
           Quick Actions

@@ -34,7 +34,7 @@ export default function AdminTopbar({
             </button>
           )}
 
-          {/* Page Title - Responsive */}
+          {/* Page Title */}
           <div>
             <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">
               {t.admin.adminDashboard}
@@ -45,9 +45,9 @@ export default function AdminTopbar({
           </div>
         </div>
 
-        {/* Right Side - Responsive */}
+        {/* Right Side */}
         <div className="flex items-center gap-2 sm:gap-4">
-          {/* User Info - Responsive */}
+          {/* User Info */}
           <div className="flex items-center gap-2 sm:gap-3 px-2 sm:px-4 py-1.5 sm:py-2 bg-gray-50 rounded-lg">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-linear-to-br from-blue-600 to-indigo-600 rounded-full flex items-center justify-center text-white font-bold shrink-0 text-sm sm:text-base">
               {user.name?.[0]?.toUpperCase() || "A"}
@@ -62,7 +62,7 @@ export default function AdminTopbar({
             </div>
           </div>
 
-          {/* Logout - Responsive */}
+          {/* Logout */}
           <div className="shrink-0">
             <LogoutButton />
           </div>
