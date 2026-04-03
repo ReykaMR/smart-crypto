@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:16-alpine
+    container_name: smart-crypto-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: smartcrypto
+      POSTGRES_PASSWORD: your_secure_password_here
+      POSTGRES_DB: smart_crypto
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U smartcrypto"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: smart-crypto-app
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: postgresql://smartcrypto:your_secure_password_here@postgres:5432/smart_crypto?schema=public
+      NEXTAUTH_SECRET: your_secret_key_change_in_production
+      NEXTAUTH_URL: http://localhost:3000
+    ports:
+      - "3000:3000"
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  postgres_data:
