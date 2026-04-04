@@ -203,11 +203,18 @@ smart-crypto/
 
 ## 🐳 Deployment Docker
 
-### Menggunakan Docker Compose (Direkomendasikan untuk Produksi)
+Untuk panduan lengkap deployment dengan Docker, lihat [DOCKER.md](DOCKER.md).
 
-1. Perbarui `docker-compose.yml` dengan kredensial PostgreSQL Anda
-2. Mulai layanan:
+### Quick Start
 
+1. Salin file environment:
+```bash
+cp .env.production .env
+```
+
+2. Edit `.env` dan perbarui variabel yang diperlukan (terutama `NEXTAUTH_SECRET`)
+
+3. Jalankan dengan Docker Compose:
 ```bash
 docker compose up -d
 ```
@@ -215,7 +222,7 @@ docker compose up -d
 Ini akan:
 - Membangun aplikasi Next.js
 - Memulai database PostgreSQL
-- Menjalankan migrasi database
+- Menjalankan migrasi database secara otomatis
 - Memulai aplikasi di port 3000
 
 ### Build Docker Manual
