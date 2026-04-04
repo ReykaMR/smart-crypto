@@ -40,7 +40,6 @@ export default function SimulationClient({
   totalValue,
   profitLoss,
   profitLossPercent,
-  userId,
 }: SimulationClientProps) {
   const { t } = useLanguage();
   const [selectedCrypto, setSelectedCrypto] = useState("BTC");

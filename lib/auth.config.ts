@@ -8,7 +8,7 @@ import { prisma } from "./prisma";
 import { verifyPassword } from "./auth";
 import { loginSchema } from "./validations";
 import { DefaultSession } from "next-auth";
-import { JWT, DefaultJWT } from "next-auth/jwt";
+import { DefaultJWT } from "next-auth/jwt";
 
 // Extend NextAuth types
 declare module "next-auth" {

@@ -14,7 +14,6 @@ const store: RateLimitStore = {};
 
 const WINDOW_MS = parseInt(process.env.RATE_LIMIT_WINDOW_MS || "60000", 10); // 1 minute default
 const MAX_REQUESTS = parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || "10", 10); // 10 requests default
-const CLEANUP_INTERVAL = 5 * 60 * 1000; // 5 minutes
 
 export function rateLimit(identifier: string): {
   success: boolean;

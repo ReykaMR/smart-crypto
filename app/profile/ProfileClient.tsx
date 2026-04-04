@@ -28,9 +28,8 @@ export default function ProfileClient({
   userId,
 }: ProfileClientProps) {
   const { t } = useLanguage();
-  const [earnedBadges, setEarnedBadges] = useState(badges.earned);
-  const [availableBadges, setAvailableBadges] = useState(badges.available);
-  const [newBadge, setNewBadge] = useState<Badge | null>(null);
+  const [earnedBadges] = useState(badges.earned);
+  const [availableBadges] = useState(badges.available);
 
   useEffect(() => {
     // Check for new badges on mount

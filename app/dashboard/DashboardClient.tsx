@@ -6,7 +6,6 @@ import {
   CourseModule,
   Lesson,
   UserProgress,
-  Certificate,
 } from "@prisma/client";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";

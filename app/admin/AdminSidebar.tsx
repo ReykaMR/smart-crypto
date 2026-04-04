@@ -23,7 +23,7 @@ export default function AdminSidebar({
 }: AdminSidebarProps) {
   const { t } = useLanguage();
   const pathname = usePathname();
-  const [users, courses, terms, lessons] = stats;
+  const [users, courses] = stats;
 
   const menuItems = [
     {

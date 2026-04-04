@@ -29,18 +29,18 @@ async function main() {
   console.log("✅ Created admin user:", admin.email);
 
   // Create demo user
-  const userPassword = await hashPassword("user123");
+  const userPassword = await hashPassword("user1_123");
   const user = await prisma.user.upsert({
-    where: { email: "user@smartcrypto.com" },
+    where: { email: "user1@smartcrypto.com" },
     update: {},
     create: {
-      email: "user@smartcrypto.com",
-      name: "Demo User",
+      email: "user1@smartcrypto.com",
+      name: "Demo User 1",
       password: userPassword,
       role: "USER",
     },
   });
-  console.log("✅ Created demo user:", user.email);
+  console.log("✅ Created demo user 1:", user.email);
 
   // Create Beginner Course
   const beginnerCourse = await prisma.course.upsert({

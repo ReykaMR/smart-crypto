@@ -2,10 +2,9 @@
 
 import { signIn, signOut } from "@/lib/auth.config";
 import { AuthError } from "next-auth";
-import { z } from "zod";
 import { prisma } from "@/lib/prisma";
 import { hashPassword } from "@/lib/auth";
-import { loginSchema, registerSchema } from "@/lib/validations";
+import { registerSchema } from "@/lib/validations";
 import { rateLimit } from "@/lib/rate-limiter";
 import { headers } from "next/headers";
 

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Lesson, Course, UserProgress, GlossaryTerm } from "@prisma/client";
+import { Lesson, Course, UserProgress } from "@prisma/client";
 import { completeLesson, submitQuiz } from "@/app/actions/lesson";
 import Link from "next/link";
 import { useLanguage } from "@/lib/i18n";

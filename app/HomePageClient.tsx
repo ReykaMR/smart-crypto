@@ -15,30 +15,6 @@ const FadeIn = dynamic(
   },
 );
 
-const StaggerContainer = dynamic(
-  () =>
-    import("@/components/AnimatedComponents").then(
-      (mod) => mod.StaggerContainer,
-    ),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="animate-pulse h-8 bg-gray-200 rounded mb-4" />
-    ),
-  },
-);
-
-const AnimatedCard = dynamic(
-  () =>
-    import("@/components/AnimatedComponents").then((mod) => mod.AnimatedCard),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="animate-pulse h-48 bg-gray-200 rounded-xl" />
-    ),
-  },
-);
-
 const AnimatedButton = dynamic(
   () =>
     import("@/components/AnimatedComponents").then((mod) => mod.AnimatedButton),
