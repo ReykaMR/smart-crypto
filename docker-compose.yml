@@ -7,15 +7,15 @@ services:
     container_name: smart-crypto-db
     restart: unless-stopped
     environment:
-      POSTGRES_USER: smartcrypto
-      POSTGRES_PASSWORD: your_secure_password_here
-      POSTGRES_DB: smart_crypto
+      POSTGRES_USER: ${POSTGRES_USER:-smartcrypto}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-smartcrypto_password_change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-smart_crypto}
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U smartcrypto"]
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-smartcrypto}"]
       interval: 10s
       timeout: 5s
       retries: 5
@@ -28,11 +28,20 @@ services:
     container_name: smart-crypto-app
     restart: unless-stopped
     environment:
-      DATABASE_URL: postgresql://smartcrypto:your_secure_password_here@postgres:5432/smart_crypto?schema=public
-      NEXTAUTH_SECRET: your_secret_key_change_in_production
-      NEXTAUTH_URL: http://localhost:3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-smartcrypto}:${POSTGRES_PASSWORD:-smartcrypto_password_change_me}@postgres:5432/${POSTGRES_DB:-smart_crypto}?schema=public
+      NEXTAUTH_SECRET: ${NEXTAUTH_SECRET:-your_secret_key_change_in_production}
+      NEXTAUTH_URL: ${NEXTAUTH_URL:-http://localhost:3000}
+      GOOGLE_CLIENT_ID: ${GOOGLE_CLIENT_ID:-}
+      GOOGLE_CLIENT_SECRET: ${GOOGLE_CLIENT_SECRET:-}
+      RATE_LIMIT_MAX_REQUESTS: ${RATE_LIMIT_MAX_REQUESTS:-10}
+      RATE_LIMIT_WINDOW_MS: ${RATE_LIMIT_WINDOW_MS:-60000}
+      EMAIL_SERVER_HOST: ${EMAIL_SERVER_HOST:-}
+      EMAIL_SERVER_PORT: ${EMAIL_SERVER_PORT:-}
+      EMAIL_SERVER_USER: ${EMAIL_SERVER_USER:-}
+      EMAIL_SERVER_PASSWORD: ${EMAIL_SERVER_PASSWORD:-}
+      EMAIL_FROM: ${EMAIL_FROM:-}
     ports:
-      - "3000:3000"
+      - "${APP_PORT:-3000}:3000"
     depends_on:
       postgres:
         condition: service_healthy
